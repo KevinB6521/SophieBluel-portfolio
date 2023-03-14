@@ -2,7 +2,7 @@ let url = "http://localhost:5678/api/works";
 
 const works = await fetch(url).then(response => response.json());
 
-function generateWorks() {
+function generateWorks(works) {
 
     for (let i = 0; i < works.length; i++) {
 
@@ -25,3 +25,5 @@ function generateWorks() {
         
     }
 };
+
+generateWorks(works);
