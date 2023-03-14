@@ -5,10 +5,22 @@ const works = await fetch(url).then(response => response.json());
 function generateWorks() {
 
     for (let i = 0; i < works.length; i++) {
-        const imageElement = document.querySelector("img");
-        const titleElement = document.querySelector("figcaption");
 
-        imageElement.src = works[i].imageUrl;
+        const work = works[i];
+
+        const sectionGallery = document.querySelector(".gallery");
+
+        const projectElement = document.createElement("figure");
+
+        const imageElement = document.createElement("img");
+        imageElement.src = work.imageUrl;
+
+        const titleElement = document.createElement("figcaption");
+        titleElement.innerText = work.title;
+
+        sectionGallery.appendChild(projectElement);
+        projectElement.appendChild(imageElement);
+        projectElement.appendChild(titleElement);
 
         
     }
