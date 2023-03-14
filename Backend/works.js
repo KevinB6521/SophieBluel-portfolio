@@ -1,8 +1,8 @@
-async function getWorks() {
-    let url = "http://localhost:5678/api/works";
+let url = "http://localhost:5678/api/works";
 
-    let response = await fetch(url);
-    let works = await response.json();
+const works = await fetch(url).then(response => response.json());
+
+function generateWorks() {
 
     for (let i = 0; i < works.length; i++) {
         const imageElement = document.querySelector("img");
