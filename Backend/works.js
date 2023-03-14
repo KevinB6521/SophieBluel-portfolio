@@ -9,11 +9,9 @@ function generateWorks(works) {
 
         const work = works[i];
 
-        const sectionGallery = document.querySelector(".gallery");
+        const divGallery = document.querySelector(".gallery");
 
         const projectElement = document.createElement("figure");
-
-        const idElement = work.id;
 
         const imageElement = document.createElement("img");
         imageElement.src = work.imageUrl;
@@ -21,8 +19,7 @@ function generateWorks(works) {
         const titleElement = document.createElement("figcaption");
         titleElement.innerText = work.title;
 
-        sectionGallery.appendChild(projectElement);
-        projectElement.appendChild(idElement);
+        divGallery.appendChild(projectElement);
         projectElement.appendChild(imageElement);
         projectElement.appendChild(titleElement);
 
