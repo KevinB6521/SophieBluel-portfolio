@@ -1,6 +1,7 @@
 let url = "http://localhost:5678/api/works";
 
-const works = await fetch(url).then(response => response.json());
+const response = await fetch(url);
+const works = await response.json();
 
 function generateWorks(works) {
 
@@ -12,6 +13,8 @@ function generateWorks(works) {
 
         const projectElement = document.createElement("figure");
 
+        const idElement = work.id;
+
         const imageElement = document.createElement("img");
         imageElement.src = work.imageUrl;
 
@@ -19,10 +22,10 @@ function generateWorks(works) {
         titleElement.innerText = work.title;
 
         sectionGallery.appendChild(projectElement);
+        projectElement.appendChild(idElement);
         projectElement.appendChild(imageElement);
         projectElement.appendChild(titleElement);
 
-        
     }
 };
 
