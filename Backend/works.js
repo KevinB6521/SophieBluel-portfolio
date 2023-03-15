@@ -27,3 +27,22 @@ function generateWorks(works) {
 };
 
 generateWorks(works);
+
+function createFilters() {
+
+    const divFilters = document.createElement("div");
+    divFilters.classList.add("filters");
+
+    const categoriesNumber = 4;
+
+    for (let i = 0; i < categoriesNumber; i++) {
+
+        // A modifier
+        const filterButton = document.createElement("button");
+        filterButton.setAttribute("id", ${id_value});
+        filterButton.innerText = ${categorie-name};
+    }
+
+};
+
+createFilters();
