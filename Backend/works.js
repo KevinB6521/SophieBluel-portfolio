@@ -5,11 +5,11 @@ const works = await response.json();
 
 function generateWorks(works) {
 
+    const divGallery = document.querySelector(".gallery");
+
     for (let i = 0; i < works.length; i++) {
 
         const work = works[i];
-
-        const divGallery = document.querySelector(".gallery");
 
         const projectElement = document.createElement("figure");
 
