@@ -1,5 +1,3 @@
-const { response } = require("express");
-
 let worksUrl = "http://localhost:5678/api/works";
 
 const worksResponse = await fetch(worksUrl);
@@ -35,20 +33,21 @@ let categoriesUrl = "http://localhost:5678/api/categories";
 const categoriesResponse = await fetch(categoriesUrl);
 const categories = await categoriesResponse.json();
 
-function createFilters() {
+function createFilters(categories) {
+
+    const categorie = categories[i];
 
     const sectionPortfolio = document.querySelector("#portfolio");
-
     const divFilters = document.querySelector(".filters");
 
     const categoriesNumber = categories.length;
 
     for (let i = 0; i < categoriesNumber; i++) {
 
-        // A modifier
         const filterButton = document.createElement("button");
-        // filterButton.setAttribute("id", ${id_value});
-        filterButton.innerText = "bite";
+        filterButton.setAttribute(`${categorie.name}`, `${categorie.id}`);
+        filterButton.innerText = categorie.name;
+
     }
 
     sectionPortfolio.appendChild(divFilters);
