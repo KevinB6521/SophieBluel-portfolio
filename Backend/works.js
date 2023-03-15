@@ -30,6 +30,8 @@ generateWorks(works);
 
 function createFilters() {
 
+    const sectionPortfolio = document.querySelector("#portfolio");
+
     const divFilters = document.createElement("div");
     divFilters.classList.add("filters");
 
@@ -42,6 +44,9 @@ function createFilters() {
         filterButton.setAttribute("id", ${id_value});
         filterButton.innerText = ${categorie-name};
     }
+
+    sectionPortfolio.appendChild(divFilters);
+    divFilters.appendChild(filterButton);
 
 };
 
