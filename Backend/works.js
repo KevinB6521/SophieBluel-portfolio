@@ -1,7 +1,9 @@
-let url = "http://localhost:5678/api/works";
+const { response } = require("express");
 
-const response = await fetch(url);
-const works = await response.json();
+let worksUrl = "http://localhost:5678/api/works";
+
+const worksResponse = await fetch(worksUrl);
+const works = await worksResponse.json();
 
 function generateWorks(works) {
 
@@ -28,20 +30,25 @@ function generateWorks(works) {
 
 generateWorks(works);
 
+let categoriesUrl = "http://localhost:5678/api/categories";
+
+const categoriesResponse = await fetch(categoriesUrl);
+const categories = await categoriesResponse.json();
+
 function createFilters() {
 
     const sectionPortfolio = document.querySelector("#portfolio");
 
     const divFilters = document.querySelector(".filters");
 
-    const categoriesNumber = 4;
+    const categoriesNumber = categories.length;
 
     for (let i = 0; i < categoriesNumber; i++) {
 
         // A modifier
         const filterButton = document.createElement("button");
-        filterButton.setAttribute("id", ${id_value});
-        filterButton.innerText = ${categorie-name};
+        // filterButton.setAttribute("id", ${id_value});
+        filterButton.innerText = "bite";
     }
 
     sectionPortfolio.appendChild(divFilters);
