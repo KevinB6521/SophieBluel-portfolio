@@ -32,8 +32,7 @@ function createFilters() {
 
     const sectionPortfolio = document.querySelector("#portfolio");
 
-    const divFilters = document.createElement("div");
-    divFilters.classList.add("filters");
+    const divFilters = document.querySelector(".filters");
 
     const categoriesNumber = 4;
 
