@@ -35,24 +35,19 @@ const categories = await categoriesResponse.json();
 
 function createFilters(categories) {
 
-    const categorie = categories[i];
-
-    const sectionPortfolio = document.querySelector("#portfolio");
     const divFilters = document.querySelector(".filters");
 
-    const categoriesNumber = categories.length;
+    for (let i = 0; i < categories.length; i++) {
 
-    for (let i = 0; i < categoriesNumber; i++) {
+        const categorie = categories[i];
 
         const filterButton = document.createElement("button");
-        filterButton.setAttribute(`${categorie.name}`, `${categorie.id}`);
-        filterButton.innerText = categorie.name;
+        filterButton.innerText = `${categorie.name}`;
+
+        divFilters.appendChild(filterButton);
 
     }
 
-    sectionPortfolio.appendChild(divFilters);
-    divFilters.appendChild(filterButton);
-
 };
 
-createFilters();
+createFilters(categories);
