@@ -63,6 +63,8 @@ function createFilters(categories) {
 
 createFilters(categories);
 
+const Categorienames = categories.map(categorie => categorie.name);
+
 const buttonObjects = document.querySelector(".button-0");
 buttonTous.addEventListener("click", function () {
     const categoriesFiltered = categories.filter(function (categorie) {
