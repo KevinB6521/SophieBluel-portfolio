@@ -62,3 +62,11 @@ function createFilters(categories) {
 };
 
 createFilters(categories);
+
+const buttonObjects = document.querySelector(".button-0");
+buttonTous.addEventListener("click", function () {
+    const categoriesFiltered = categories.filter(function (categorie) {
+        return categorie.name;
+    });
+    console.log(categoriesFiltered);
+});
