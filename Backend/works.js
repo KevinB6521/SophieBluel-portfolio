@@ -37,6 +37,11 @@ function createFilters(categories) {
 
     const divFilters = document.querySelector(".filters");
 
+    const defaultFilterButton = document.createElement("button");
+    filterButton.innerText = "Tous";
+
+    divFilters.appendChild(defaultFilterButton);
+
     for (let i = 0; i < categories.length; i++) {
 
         const categorie = categories[i];
