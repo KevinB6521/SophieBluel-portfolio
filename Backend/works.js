@@ -63,12 +63,18 @@ function createFilters(categories) {
 
 createFilters(categories);
 
-const Categorienames = categories.map(categorie => categorie.name);
+const categoriesName = categories.map(categorie => categorie.name);
 
 const buttonObjects = document.querySelector(".button-0");
-buttonTous.addEventListener("click", function () {
+buttonObjects.addEventListener("click", function () {
     const categoriesFiltered = categories.filter(function (categorie) {
         return categorie.name;
     });
     console.log(categoriesFiltered);
+
+    for(let i = categories.length - 1; i >= 0; i--) {
+        if (categories[i].name !== 'Objets') {
+            categoriesName.splice(i, 1)
+        }
+    }
 });
