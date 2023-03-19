@@ -35,10 +35,13 @@ const categories = await categoriesResponse.json();
 
 function createFilters(categories) {
 
+    let buttonID = 0;
+
     const divFilters = document.querySelector(".filters");
 
     const defaultFilterButton = document.createElement("button");
-    filterButton.innerText = "Tous";
+    defaultFilterButton.innerText = "Tous";
+    defaultFilterButton.classList.add = ("button-tous");
 
     divFilters.appendChild(defaultFilterButton);
 
@@ -48,6 +51,9 @@ function createFilters(categories) {
 
         const filterButton = document.createElement("button");
         filterButton.innerText = `${categorie.name}`;
+        filterButton.classList.add = (`button-${buttonID}`);
+
+        buttonID += 1;
 
         divFilters.appendChild(filterButton);
 
