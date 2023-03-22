@@ -35,35 +35,23 @@ const categories = await categoriesResponse.json();
 
 function createFilters(categories) {
 
-    let categoriesList = ["Tous", ...categories];
+    const categoriesNames = categories.map(categorie => categorie.name);
+
+    let categoriesList = ["Tous", ...categoriesNames];
 
     const divFilters = document.querySelector(".filters");
 
     categoriesList.forEach((categorie) => {
 
         const filterButton = document.createElement("button");
-        filterButton.innerText = `${categorie.name}`;
+        filterButton.innerText = categoriesList;
 
         divFilters.appendChild(filterButton);
     });
 
-    for (let i = 0; i < categories.length; i++) {
-
-        const categorie = categories[i];
-
-        const filterButton = document.createElement("button");
-        filterButton.innerText = `${categorie.name}`;
-        filterButton.classList.add = (`button-${buttonID}`);
-
-        buttonID += 1;
-
-    }
-
 };
 
 createFilters(categories);
-
-const categoriesName = categories.map(categorie => categorie.name);
 
 const buttonObjects = document.querySelector("button");
 buttonObjects.addEventListener("click", function () {
