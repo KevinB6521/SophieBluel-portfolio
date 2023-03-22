@@ -35,10 +35,7 @@ const categories = await categoriesResponse.json();
 
 function createFilters(categories) {
 
-    let buttonID = 0;
-
     let categoriesList = ["Tous", ...categories];
-    console.log(categoriesList);
 
     const divFilters = document.querySelector(".filters");
 
@@ -46,7 +43,6 @@ function createFilters(categories) {
 
         const filterButton = document.createElement("button");
         filterButton.innerText = `${categorie.name}`;
-        filterButton.classList.add = (`button-${buttonID}`);
 
         divFilters.appendChild(filterButton);
     });
