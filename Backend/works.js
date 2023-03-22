@@ -46,7 +46,7 @@ function createFilters(categories) {
         const filterButton = document.createElement("button");
         filterButton.innerText = category;
 
-        //filterButton.addEventListener("click", filterCategories(category))
+        filterButton.addEventListener("click", filterCategories(category))
 
         divFilters.appendChild(filterButton);
     });
