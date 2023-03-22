@@ -37,13 +37,19 @@ function createFilters(categories) {
 
     let buttonID = 0;
 
+    let categoriesList = ["Tous", ...categories];
+    console.log(categoriesList);
+
     const divFilters = document.querySelector(".filters");
 
-    const defaultFilterButton = document.createElement("button");
-    defaultFilterButton.innerText = "Tous";
-    defaultFilterButton.classList.add = ("button-tous");
+    categoriesList.forEach((categorie) => {
 
-    divFilters.appendChild(defaultFilterButton);
+        const filterButton = document.createElement("button");
+        filterButton.innerText = `${categorie.name}`;
+        filterButton.classList.add = (`button-${buttonID}`);
+
+        divFilters.appendChild(filterButton);
+    });
 
     for (let i = 0; i < categories.length; i++) {
 
@@ -55,8 +61,6 @@ function createFilters(categories) {
 
         buttonID += 1;
 
-        divFilters.appendChild(filterButton);
-
     }
 
 };
@@ -65,16 +69,21 @@ createFilters(categories);
 
 const categoriesName = categories.map(categorie => categorie.name);
 
-const buttonObjects = document.querySelector(".button-0");
+const buttonObjects = document.querySelector("button");
 buttonObjects.addEventListener("click", function () {
-    const categoriesFiltered = categories.filter(function (categorie) {
-        return categorie.name;
-    });
-    console.log(categoriesFiltered);
 
-    for(let i = categories.length - 1; i >= 0; i--) {
-        if (categories[i].name !== 'Objets') {
-            categoriesName.splice(i, 1)
+    const worksFiltered = Array.from(works);
+
+    worksFiltered.filter(function (work) {
+        return work.categorie.name;
+    });
+
+    for(let i = works.length - 1; i >= 0; i--) {
+        if (works[i].categorie.name !== 'Objets') {
+            works.splice(i, 1);
         }
     }
+
+    document.querySelector(".gallery").innerHTML = "";
+    generateWorks(worksFiltered);
 });
