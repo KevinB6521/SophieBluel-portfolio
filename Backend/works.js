@@ -46,7 +46,7 @@ function createFilters(categories) {
         const filterButton = document.createElement("button");
         filterButton.innerText = category;
 
-        //filterButton.addEventListener("click", filterCategories(categorie))
+        //filterButton.addEventListener("click", filterCategories(category))
 
         divFilters.appendChild(filterButton);
     });
@@ -57,16 +57,16 @@ createFilters(categories);
 
 function filterCategories(category) {
 
-    const worksFiltered = Array.from(works);
+    if (category === "Objets") {
+        // retirer tous les elements qui ne sont pas de la categorie objets
+    }
 
-    worksFiltered.filter(function (work) {
-        return work.categorie.name;
-    });
+    if (category === "Appartements") {
 
-    for(let i = works.length - 1; i >= 0; i--) {
-        if (works[i].categorie.name !== 'Objets') {
-            works.splice(i, 1);
-        }
+    }
+
+    if (category === "Hotels & restaurants") {
+
     }
 
     document.querySelector(".gallery").innerHTML = "";
