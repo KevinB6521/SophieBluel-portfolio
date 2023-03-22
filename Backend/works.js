@@ -45,8 +45,29 @@ function createFilters(categories) {
 
         const filterButton = document.createElement("button");
         filterButton.innerText = category;
+        filterButton.addEventListener("click", function(category) {
+            const worksFiltered = works.map(work => work.category.name);
 
-        filterButton.addEventListener("click", filterCategories(category))
+            if (category === "Objets") {
+                for (let i = works.length - 1; i >= 0; i--) {
+                    if (worksFiltered !== "Objets") {
+                        works.splice(i, 1);
+                    };
+                };
+
+            }
+
+            if (category === "Appartements") {
+
+            }
+
+            if (category === "Hotels & restaurants") {
+
+            }
+
+            document.querySelector(".gallery").innerHTML = "";
+            generateWorks(works);
+        });
 
         divFilters.appendChild(filterButton);
     });
@@ -54,28 +75,3 @@ function createFilters(categories) {
 };
 
 createFilters(categories);
-
-function filterCategories(category) {
-
-    const worksFiltered = works.map(work => work.category.name);
-
-    if (category === "Objets") {
-        // retirer tous les elements qui ne sont pas de la categorie objets
-        for (let i = works.length - 1; i >= 0; i--) {
-            if (worksFiltered !== "Objets") {
-                works.splice(i, 1)
-            }
-        }
-    }
-
-    if (category === "Appartements") {
-
-    }
-
-    if (category === "Hotels & restaurants") {
-
-    }
-
-    document.querySelector(".gallery").innerHTML = "";
-    generateWorks(worksFiltered);
-};
