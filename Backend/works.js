@@ -35,16 +35,18 @@ const categories = await categoriesResponse.json();
 
 function createFilters(categories) {
 
-    const categoriesNames = categories.map(categorie => categorie.name);
+    const categoriesNames = categories.map(category => category.name);
 
     let categoriesList = ["Tous", ...categoriesNames];
 
     const divFilters = document.querySelector(".filters");
 
-    categoriesList.forEach((categorie) => {
+    categoriesList.forEach((category) => {
 
         const filterButton = document.createElement("button");
-        filterButton.innerText = categoriesList;
+        filterButton.innerText = category;
+
+        //filterButton.addEventListener("click", filterCategories(categorie))
 
         divFilters.appendChild(filterButton);
     });
@@ -53,8 +55,7 @@ function createFilters(categories) {
 
 createFilters(categories);
 
-const buttonObjects = document.querySelector("button");
-buttonObjects.addEventListener("click", function () {
+function filterCategories(category) {
 
     const worksFiltered = Array.from(works);
 
