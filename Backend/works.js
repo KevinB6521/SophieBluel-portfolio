@@ -48,8 +48,10 @@ function createFilters(categories) {
 
         filterButton.addEventListener("click", function(category) {
 
-            const worksFiltered = Array.from(works);
+            let worksFiltered = Array.from(works);
+            console.log(worksFiltered);
             const worksNames = worksFiltered.map(work => work.category.name);
+            console.log(worksNames);
 
             if (category === "Objets") {
                 
@@ -57,15 +59,11 @@ function createFilters(categories) {
 
                     for (let i = worksFiltered.length - 1; i >= 0; i--) {
                         if (worksNames !== "Objets") {
-                            
+                            worksFiltered.splice(i,1);
                         };
-
-                    console.log(worksFiltered);
-
                     };
 
                 });
-
             };
 
             if (category === "Appartements") {
@@ -79,10 +77,9 @@ function createFilters(categories) {
             document.querySelector(".gallery").innerHTML = "";
             generateWorks(worksFiltered);
 
+        });
 
         divFilters.appendChild(filterButton);
-
-        });
     
     });
 
